@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<h1>Registered Employees</h1>
+    <table id="mytab">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Office</th>
+          <th>Position</th>
+          <th>Salary</th>
+        </tr>
+       </thead>
+        <tbody>
+  </tbody>
+      </table>
+
+
+    <script>
+      fetch("https://run.mocky.io/v3/9b184f9d-bf48-4467-9d8f-137ea0eba817").then((e)=>
+            e.json()
+        )
+       .then((e)=>{
+        var mytab=document.querySelector("#mytab");
+            console.log(e.data)
+            for(let i=0;i<e.data.length;i++){
+
+ let dat=mytab.insertRow();
+ dat.insertCell().textContent=e.data[i].name;
+ dat.insertCell().textContent=e.data[i].office;
+ dat.insertCell().textContent=e.data[i].position;
+  dat.insertCell().textContent=e.data[i].salary;    
+              
+            }
+
+
+
+          
+              })
+       
+    </script>
+</body>
+</html>
